@@ -1,5 +1,5 @@
 <?php
-  include('init.php');
+  include('core/init.php');
 ?>
 <!doctype html>
 <html>
