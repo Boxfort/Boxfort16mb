@@ -6,7 +6,9 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    echo $username;
-    echo $password;
+    if(empty($username) || empty($password) || !user_exists($username))
+    {
+      //Login Failure
+    }
   }
 ?>
