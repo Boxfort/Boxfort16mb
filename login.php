@@ -8,15 +8,21 @@
 
     if(empty($username) || empty($password))
     {
-      echo "No username / pass entered";
-      //Login Failure
-    }elseif(user_exists($username) === true)
+      $errors[] = 'You need to enter a username and password.';
+    }
+    elseif(!user_exists($username))
     {
-      echo "user exists";
+      $errors[] = 'Incorrect username or password.';
+    }
+    elseif(!user_active($username))
+    {
+      $errors[] = 'Please activate your account.';
     }
     else
     {
-      echo "NO USER WITH THAT NAME HAHAHAH";
+        //Check if password is correct!
     }
+
+    print_r($errors);
   }
 ?>
