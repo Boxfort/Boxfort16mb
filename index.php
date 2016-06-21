@@ -23,9 +23,12 @@
     <div id="container">
       <aside>
         <h2>Login</h2>
-        <form method="post">
-          <label>Username</label><input id="username" name="username"></input><br/>
-          <label>Password</label><input id="password" name="password" type="password"></input>
+        <form action="login.php" method="post">
+          <label>Username</label><br/>
+          <input id="username" name="username"></input><br/>
+          <label>Password</label><br/>
+          <input id="password" name="password" type="password"></input><br/>
+          <button type="submit">Log in</button>
         </form>
       </aside>
     </div>
