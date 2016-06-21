@@ -17,4 +17,23 @@
       return false;
     }
   }
+
+  function user_active($username)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT active FROM users WHERE username = :username");
+
+      //Bind parameters
+    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay){
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      return((int)$data['active'] === 1 ? true : false);
+    }else{
+      return false;
+    }
+  }
 ?>
