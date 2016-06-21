@@ -36,4 +36,23 @@
       return false;
     }
   }
+
+  function login($username, $password)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT password FROM users WHERE username = :username");
+
+      //Bind parameters
+    $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay){
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      return(password_verify($password, $data['password']));
+    }else{
+      return false;
+    }
+  }
 ?>

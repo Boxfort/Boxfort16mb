@@ -20,7 +20,14 @@
     }
     else
     {
-        //Check if password is correct!
+      if(login($username, $password))
+      {
+        echo "Logged in!!!";
+      }
+      else
+      {
+        $errors[] = 'Incorrect username or password.';
+      }
     }
 
     print_r($errors);
