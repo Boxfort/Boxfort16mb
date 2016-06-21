@@ -1,7 +1,7 @@
 <?php
 class DbConnection extends PDO
 {
-  public function __construct($file = 'config.ini')
+  public function __construct($file = 'core/config.ini')
   {
     if (!$settings = parse_ini_file(dirname(__DIR__) . '/' . $file, TRUE)) {
       throw new exception('Unable to open ' . $file . '.');
