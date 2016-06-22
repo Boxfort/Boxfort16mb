@@ -20,13 +20,16 @@
     }
     else
     {
-      if(login($username, $password))
+      $login = login($username, $password);
+      if($login === false)
       {
-        echo "Logged in!!!";
+        $errors[] = 'Incorrect username or password.';
       }
       else
       {
-        $errors[] = 'Incorrect username or password.';
+        $_SESSION['user_id'] = $login;
+        header('Location: index.php');
+        exit();
       }
     }
 
