@@ -11,10 +11,17 @@
     return($data === false ? false : ((int)$data['active'] === 1 ? true : false));
   }
 
+  function id_from_username($username)
+  {
+    $data = query_on_username("SELECT user_id FROM users WHERE username = :username", $username);
+    return($data === false ? false : $data['user_id']);
+  }
+
   function login($username, $password)
   {
+    $userid = id_from_username($username);
     $data = query_on_username("SELECT password FROM users WHERE username = :username", $username);
-    return ($data === false ? false : password_verify($password, $data['password']));
+    return ($data === false ? false : (password_verify($password, $data['password'])) ? $userid : false );
   }
 
   function query_on_username($sql, $username)
