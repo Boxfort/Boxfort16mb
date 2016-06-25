@@ -33,7 +33,7 @@
       }
     }
 
-    $_SESSION['errors'] = $errors[0];
+    $_SESSION['errors'] = $errors[count($errors) - 1];
     header('Location: index.php');
   }
 ?>
