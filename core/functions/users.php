@@ -1,4 +1,9 @@
 <?php
+  function logged_in()
+  {
+    return (isset($_SESSION['user_id'])) ? true : false;
+  }
+
   function user_exists($username)
   {
     $data = query_on_username("SELECT COUNT(user_id) FROM users WHERE username = :username", $username);
