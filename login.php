@@ -1,5 +1,5 @@
 <?php
-  include 'core/init.php';
+  include_once 'core/init.php';
 
   if(empty($_POST) === false)
   {

@@ -1,6 +1,6 @@
 <?php
-  include('core/init.php');
-  include('include/header.php');
+  require 'core/init.php';
+  require 'include/header.php';
 ?>
 <div class="row">
   <div class="col-sm-8 blog-main">
@@ -12,7 +12,10 @@
       </p>
     </div>
   <?php
-    include('include/aside.php');
-    include('include/footer.php');
+    include 'include/aside.php';
   ?>
 </div>
+
+<?php
+  include 'include/footer.php';
+?>
