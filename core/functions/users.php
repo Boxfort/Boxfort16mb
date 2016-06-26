@@ -29,6 +29,26 @@
     return ($data === false ? false : (password_verify($password, $data['password'])) ? $userid : false );
   }
 
+  function get_user_data($id)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT * FROM users WHERE user_id = :id");
+
+    //Bind parameters
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      return $data;
+    }
+
+    return false;
+  }
+
   function query_on_username($sql, $username)
   {
     $db = new DbConnection();
