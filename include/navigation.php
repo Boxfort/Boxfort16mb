@@ -1,4 +1,4 @@
-<nav role="navigation" class="navbar navbar-default">
+<nav role="navigation" class="navbar navbar-light">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
     <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
