@@ -2,15 +2,16 @@ body{
   padding: 20px;
 }
 
-input{
-  display: block;
-  width: 100%;
-  padding-left: 5px;
-}
-
-
 hr {
   border-top: 1px dashed #8c8b8b;
+}
+
+ul li {
+  list-style: none;
+}
+
+table{
+  width:auto !important;
 }
 
 hr:after {
@@ -25,9 +26,35 @@ hr:after {
   font-size: 18px;
 }
 
+input.aside{
+  display: block;
+  width: 100%;
+  padding-left: 5px;
+}
+
+input.register{
+  width:auto;
+  margin-top: 0px;
+  display: inline;
+}
+
+label{
+  display: inline;
+}
+
+label.required:after{
+  content:'*';
+  color:red;
+}
+
 h2.aside{
   border-bottom: 1px solid lightgrey;
   padding-bottom: 5px;
+}
+
+.btn-register{
+  width:100%;
+  margin-bottom: -20px;
 }
 
 .alert{
