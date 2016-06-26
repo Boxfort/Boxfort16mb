@@ -1,4 +1,5 @@
 <?php
+
   function logged_in()
   {
     return (isset($_SESSION['user_id'])) ? true : false;
@@ -19,6 +20,33 @@
     }
 
     return 0;
+  }
+
+  function register_account($username, $first, $last, $email, $password)
+  {
+    $encrypt_pass = password_hash($password, PASSWORD_BCRYPT);
+
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("INSERT INTO users (username, password, first_name, surname, email)
+                          VALUES (:username, :password, :first, :last, :email)");
+
+    //Bind parameters
+    $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+    $stmt->bindParam(":password", $encrypt_pass, PDO::PARAM_STR);
+    $stmt->bindParam(":first", $first, PDO::PARAM_STR);
+    $stmt->bindParam(":last", $last, PDO::PARAM_STR);
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+
+    if($isOkay)
+    {
+      return true;
+    }
+
+    return false;
   }
 
   function user_exists($username)
