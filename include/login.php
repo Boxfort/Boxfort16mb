@@ -1,5 +1,5 @@
 <form class="form-signin" action="login.php" method="post">
-  <h2 class="form-signin-heading">Login</h2>
+  <h2 class="form-signin-heading aside">Login</h2>
   <?php
     if(!empty($_SESSION['errors']))
     {
@@ -14,3 +14,4 @@
   </br>
   <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 </form>
+<a class='register' href='register.php'>Create an account</a>

@@ -9,4 +9,6 @@
       include('include/login.php');
     }
   ?>
+  <h2 class="aside">Users</h2>
+  <p>We currently have <?php echo total_users(); ?> registered users.</p>
 </div>

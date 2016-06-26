@@ -4,6 +4,23 @@
     return (isset($_SESSION['user_id'])) ? true : false;
   }
 
+  function total_users()
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM users WHERE active = 1");
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      return $data['COUNT(user_id)'];
+    }
+
+    return 0;
+  }
+
   function user_exists($username)
   {
     $data = query_on_username("SELECT COUNT(user_id) FROM users WHERE username = :username", $username);
