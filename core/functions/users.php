@@ -74,6 +74,26 @@
     return ($data === false ? false : (password_verify($password, $data['password'])) ? $userid : false );
   }
 
+  function email_exists($email)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT COUNT(email) FROM users WHERE email = :email");
+
+    //Bind parameters
+    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      $data = $stmt->fetch(PDO::FETCH_ASSOC);
+      return ((int)$data['COUNT(email)'] === 1 ? true : false);
+    }
+
+    return false;
+  }
+
   function get_user_data($id)
   {
     $db = new DbConnection();

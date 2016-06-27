@@ -34,6 +34,14 @@
     {
       $_SESSION['errors'] = "Passwords do not match.";
     }
+    elseif(user_exists($_POST['username']))
+    {
+      $_SESSION['errors'] = "Username already exists.";
+    }
+    elseif(email_exists($_POST['email']))
+    {
+      $_SESSION['errors'] = "E-mail is already registered to an account.";
+    }
 
     if(!isset($_SESSION['errors']))
     {
