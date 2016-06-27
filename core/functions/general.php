@@ -7,4 +7,13 @@
     }
     return false;
   }
+
+  function protect_page()
+  {
+    if(!logged_in())
+    {
+      header('Location: Index.php');
+      exit();
+    }
+  }
 ?>
