@@ -2,7 +2,8 @@
   <?php
     if(logged_in())
     {
-      echo "<a href='logout.php'> Log out </a>";
+      echo "<a href='logout.php'> Log out </a>
+            <a href='passwordchange.php'> Change password </a>";
     }
     else
     {

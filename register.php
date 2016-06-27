@@ -63,7 +63,7 @@
   }elseif(!empty($_POST))
   {
     echo '<div class="alert alert-success" role="alert">
-            Success! A confirmation e-mail has been sent to your inbox. <a href="#" class="alert-link">Return to home page.</a>
+            Success! A confirmation e-mail has been sent to your inbox. <a href="index.php" class="alert-link">Return to home page.</a>
           </div>';
   }
 ?>
