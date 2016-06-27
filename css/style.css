@@ -68,6 +68,11 @@ h2.aside{
   margin-top: 20px;
 }
 
+.table-center{
+  width:500px;
+  margin: 0 auto;
+}
+
 #username{
   -webkit-appearance:none;
   -webkit-border-radius:0px;

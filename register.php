@@ -53,6 +53,7 @@
   }
 ?>
 
+<div class="table-center">
 <h1>Register a new account</h1>
 <?php
   if(!empty($_SESSION['errors']))
@@ -66,8 +67,7 @@
           </div>';
   }
 ?>
-<form action="" method="post">
-  <div class="table-responsive">
+  <form action="" method="post">
     <table class="table">
       <tbody>
         <tr>
@@ -104,8 +104,8 @@
         </tr>
       <tbody>
     </table>
-  </div>
-</form>
+  </form>
+</div>
 
 <?php
   include 'include/footer.php';
