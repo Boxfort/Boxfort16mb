@@ -49,6 +49,28 @@
     return false;
   }
 
+  function change_password($user_id, $new_password)
+  {
+    $encrypt_pass = password_hash($new_password, PASSWORD_BCRYPT);
+
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("UPDATE users SET password = :encrypt_pass WHERE user_id = :user_id");
+
+    //Bind parameters
+    $stmt->bindParam(':encrypt_pass', $encrypt_pass, PDO::PARAM_STR);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      return true;
+    }
+
+    return false;
+  }
+
   function user_exists($username)
   {
     $data = query_on_username("SELECT COUNT(user_id) FROM users WHERE username = :username", $username);
