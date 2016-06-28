@@ -11,7 +11,7 @@
       {
         $_SESSION['errors'] = "Fields marked with an asterisk are required.";
       }
-      elseif($key != 'email' && $key != 'email_conf')
+      elseif($key != 'email' && $key != 'email_conf' && $key != "password" && $key != "password_conf")
       {
         if(preg_match("/\b[a-z0-9_-]{3,15}\b/", $value, $match))
         {
@@ -51,7 +51,9 @@
       $ip = $_SERVER['REMOTE_ADDR'];
       $captcha = $_POST['g-recaptcha-response'];
       $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$captcha}&remoteip={$ip}");
-      if($response)
+      $response_array = json_decode($response, true);
+
+      if($response_array['success'] === false)
       {
         $_SESSION['errors'] = "Please complete the reCAPTCHA verification.";
       }
