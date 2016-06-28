@@ -4,7 +4,7 @@
   {
     require_once('core/functions/PHPMailer/PHPMailerAutoload.php');
 
-    $file = 'core/functions/PHPMailer/email.ini';
+    $file = 'functions/PHPMailer/email.ini';
 
     if (!$settings = parse_ini_file(dirname(__DIR__) . '/' . $file, TRUE)) {
       throw new exception('Unable to open ' . $file . '.');
@@ -15,11 +15,11 @@
     //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
     $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = $settings['email']['host'];             // Specify main and backup SMTP servers
+    $mail->Host = "{$settings['email']['host']}";             // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = $settings['email']['username'];     // SMTP username
-    $mail->Password = $settings['email']['password'];     // SMTP password
-    $mail->Port = $settings['email']['port'];             // TCP port to connect to
+    $mail->Username = "{$settings['email']['username']}";     // SMTP username
+    $mail->Password = "{$settings['email']['password']}";     // SMTP password
+    $mail->Port = "{$settings['email']['port']}";             // TCP port to connect to
 
     $mail->setFrom($settings['email']['username']);
     $mail->addAddress($email);                            // Add a recipient
@@ -31,10 +31,9 @@
     $mail->AltBody = "Hello!";
 
     if(!$mail->send()) {
-        echo 'Message could not be sent.';
-        echo 'Mailer Error: ' . $mail->ErrorInfo;
+        return false;
     } else {
-        echo 'Message has been sent';
+        return true;
     }
   }
 
