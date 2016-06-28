@@ -65,15 +65,15 @@
       <tbody>
         <tr>
           <td><label class="required">Old password</label></td>
-          <td><input class="form-control register" name="password_old" placeholder="Old password" required autofocus></td>
+          <td><input type="password" class="form-control register" name="password_old" placeholder="Old password" required autofocus></td>
         <tr>
         <tr>
           <td><label class="required">New password</label></td>
-          <td><input class="form-control register" name="password_new" placeholder="New password" required></td>
+          <td><input type="password" class="form-control register" name="password_new" placeholder="New password" required></td>
         </tr>
         <tr>
           <td><label class="required">Confirm new password</label></td>
-          <td><input class="form-control register" name="password_conf" placeholder="Confirm new password" required></td>
+          <td><input type="password" class="form-control register" name="password_conf" placeholder="Confirm new password" required></td>
         </tr>
         <tr>
           <td></td>
