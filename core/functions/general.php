@@ -1,14 +1,21 @@
 <?php
 
+  function load_ini($file)
+  {
+    if (!$settings = parse_ini_file(dirname(__DIR__) . '/' . $file, TRUE))
+    {
+      throw new exception('Unable to open ' . $file . '.');
+    }
+
+    return $settings;
+  }
+
   function send_confirmation($email, $email_code)
   {
     require_once('core/functions/PHPMailer/PHPMailerAutoload.php');
 
     $file = 'functions/PHPMailer/email.ini';
-
-    if (!$settings = parse_ini_file(dirname(__DIR__) . '/' . $file, TRUE)) {
-      throw new exception('Unable to open ' . $file . '.');
-    }
+    $settings = load_ini($file);
 
     $mail = new PHPMailer;
 

@@ -43,6 +43,20 @@
       $_SESSION['errors'] = "E-mail is already registered to an account.";
     }
 
+    if(isset($_POST['g-recaptcha-response']))
+    {
+      $settings = load_ini('recaptcha.ini');
+
+      $secret = $settings['recaptcha']['secret'];
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $captcha = $_POST['g-recaptcha-response'];
+      $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$captcha}&remoteip={$ip}");
+      if($response)
+      {
+        $_SESSION['errors'] = "Please complete the reCAPTCHA verification.";
+      }
+    }
+
     if(!isset($_SESSION['errors']))
     {
       $email_code = md5($_POST['username'] + microtime());
@@ -99,6 +113,9 @@
         <tr>
           <td><label class="required">Confirm password</label></td>
           <td><input class="form-control register" name="password_conf" type="password" placeholder="Password" required></td>
+        </tr>
+        <tr>
+          <td colspan="2"><div class="g-recaptcha" data-sitekey="6LeokSMTAAAAAFt-eLn_YTDhRhefxMWDzO8ulFwe"></div></td>
         </tr>
         <tr>
           <td></td>
