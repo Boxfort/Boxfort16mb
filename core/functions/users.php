@@ -44,7 +44,11 @@
 
     if($isOkay)
     {
-      return true;
+      if(send_confirmation($email, $email_code))
+      {
+        return true;
+      }
+      return flase;
     }
 
     return false;

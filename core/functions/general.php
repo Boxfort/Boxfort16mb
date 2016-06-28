@@ -1,6 +1,6 @@
 <?php
 
-  function send_confirmation($email)
+  function send_confirmation($email, $email_code)
   {
     require_once('core/functions/PHPMailer/PHPMailerAutoload.php');
 
@@ -27,8 +27,8 @@
     $mail->isHTML(true);                                  // Set email format to HTML
 
     $mail->Subject = 'Account activation.';
-    $mail->Body    = "Hello! <br/> newline";
-    $mail->AltBody = "Hello!";
+    $mail->Body    = "Please activate your account by following this link - localhost/boxfort16mb/activate.php?email={$email}&email_code={$email_code}";
+    $mail->AltBody = "Please activate your account by following this link - localhost/boxfort16mb/activate.php?email={$email}&email_code={$email_code}";
 
     if(!$mail->send()) {
         return false;
