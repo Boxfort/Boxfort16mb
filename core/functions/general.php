@@ -3,19 +3,26 @@
   function send_confirmation($email)
   {
     require_once('core/functions/PHPMailer/PHPMailerAutoload.php');
+
+    $file = 'core/functions/PHPMailer/email.ini';
+
+    if (!$settings = parse_ini_file(dirname(__DIR__) . '/' . $file, TRUE)) {
+      throw new exception('Unable to open ' . $file . '.');
+    }
+
     $mail = new PHPMailer;
 
     //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
     $mail->isSMTP();                                      // Set mailer to use SMTP
-    $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+    $mail->Host = $settings['email']['host'];             // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'boxfort16mb@gmail.com';                 // SMTP username
-    $mail->Password = 'PASSWORD';                           // SMTP password
-    $mail->Port = 465;                                    // TCP port to connect to
+    $mail->Username = $settings['email']['username'];     // SMTP username
+    $mail->Password = $settings['email']['password'];     // SMTP password
+    $mail->Port = $settings['email']['port'];             // TCP port to connect to
 
-    $mail->setFrom('boxfort16mb@gmail.com', 'Boxfory16mb');
-    $mail->addAddress($email);     // Add a recipient
+    $mail->setFrom($settings['email']['username']);
+    $mail->addAddress($email);                            // Add a recipient
 
     $mail->isHTML(true);                                  // Set email format to HTML
 
