@@ -54,6 +54,48 @@
     return false;
   }
 
+  function activate_account($email, $email_code)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT COUNT(user_id) FROM users WHERE email = :email AND email_code = :email_code AND active = 0");
+
+    //Bind parameters
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+    $stmt->bindParam(":email_code", $email_code, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      if(set_active($email))
+      {
+        return true;
+      }
+      return false;
+    }
+    return false;
+  }
+
+  function set_active($email)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("UPDATE users SET active = 1 WHERE email = :email");
+
+    $stmt->bindParam(":email", $email, PDO::PARAM_STR);
+
+    $isOkay = $stmt->execute();
+
+    if($isOkay)
+    {
+      return true;
+    }
+    return false;
+  }
+
   function change_password($user_id, $new_password)
   {
     $encrypt_pass = password_hash($new_password, PASSWORD_BCRYPT);
