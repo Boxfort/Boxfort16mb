@@ -45,7 +45,8 @@
 
     if(!isset($_SESSION['errors']))
     {
-      if(!register_account($_POST['username'], $_POST['first'], $_POST['last'], $_POST['email'], $_POST['password']))
+      $email_code = md5($_POST['username'] + microtime());
+      if(!register_account($_POST['username'], $_POST['first'], $_POST['last'], $_POST['email'], $email_code, $_POST['password']))
       {
         $_SESSION['errors'] = "We were unable to create your account due to a problem with our servers. Please try again later.";
       }
