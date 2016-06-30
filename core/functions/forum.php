@@ -52,6 +52,94 @@
     }
   }
 
+  function get_topic_by_id($id)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT * FROM topics WHERE topic_id = :id");
+
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $data;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  function get_replies($topic)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT * FROM replies WHERE reply_topic = :topic ORDER BY reply_date");
+
+    $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $data;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  function get_reply_count($topic)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT COUNT(reply_id) FROM replies WHERE reply_topic = :topic");
+
+    $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $data['COUNT(reply_id)'];
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  function get_last_reply($topic)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT reply_by, reply_date FROM replies WHERE reply_topic = :topic");
+
+    $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $data;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   function get_category_id($category)
   {
     $db = new DbConnection();
