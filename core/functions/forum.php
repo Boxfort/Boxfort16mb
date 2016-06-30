@@ -20,6 +20,18 @@
     }
   }
 
+  function create_post($reply, $op)
+  {
+    if($op)
+    {
+      echo "<div><div>{$reply['topic_by']} {$reply['topic_date']}</div><div>{$reply['topic_body']}</div></div>";
+    }
+    else
+    {
+      echo "<div><div>{$reply['reply_by']} {$reply['reply_date']}</div><div>{$reply['reply_content']}</div></div>";
+    }
+  }
+
   function get_topics($category = "all")
   {
     $db = new DbConnection();

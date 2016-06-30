@@ -14,6 +14,19 @@ table{
   width:auto !important;
 }
 
+table.forum{
+  width:100% !important;
+}
+
+td.fit, th.fit{
+  white-space: nowrap;
+  width: 1%;
+}
+
+footer{
+  display:block;
+}
+
 hr:after {
   content: '\002702';
   display: inline-block;

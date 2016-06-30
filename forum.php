@@ -4,11 +4,7 @@
 
   if(isset($_GET['topic']) && $topic = get_topic_by_id($_GET['topic']))
   {
-    $replies = get_replies($_GET['topic']);
-    foreach($replies as $reply)
-    {
-      echo "<div><div>{$reply['reply_by']} {$reply['reply_date']}</div><div>{$reply['reply_content']}</div></div>";
-    }
+    include 'include/thread.php';
   }
   else
   {
@@ -22,12 +18,13 @@
       echo "<div>{$category['cat_name']}</div>";
     }
 
-    echo '<table class="col-md-12 table-bordered table-striped table-condensed">
+    echo '<div class="row">
+          <table class="col-md-12 table-bordered table-striped table-condensed forum">
             <thead>
               <tr>
                 <th>Subject</th>
-                <th>Replies</th>
-                <th>Last Post</th>
+                <th class="fit">Replies</th>
+                <th class="fit">Last Post</th>
               </tr>
             </thead>
             <tbody>';
@@ -42,19 +39,19 @@
       echo "<tr>
               <td>
                 <div><a href='forum.php?topic={$topic['topic_id']}'>{$topic['topic_subject']}</a></div>
-                <div>Started by: {$name}</div>
+                <div>Started by {$name}</div>
               </td>
-              <td>
+              <td class='fit'>
                 {$replies}
               </td>
-              <td>
+              <td class='fit'>
                 <div>{$last['reply_date']}</div>
                 <div>by {$username}</div>
               </td>
             </tr>";
     }
 
-    echo "</tbody></table>";
+    echo "</tbody></table></div>";
   }
 
   include 'include/footer.php';
