@@ -163,11 +163,23 @@
     return false;
   }
 
+  function get_username($id)
+  {
+    $data = query_on_user_id("SELECT username FROM users WHERE user_id = :id", $id);
+    return($data === false ? false : $data['username']);
+  }
+
   function get_user_data($id)
+  {
+    $data = query_on_user_id("SELECT * FROM users WHERE user_id = :id", $id);
+    return($data === false ? false : $data);
+  }
+
+  function query_on_user_id($sql, $id)
   {
     $db = new DbConnection();
     $data = array();
-    $stmt = $db->prepare("SELECT * FROM users WHERE user_id = :id");
+    $stmt = $db->prepare($sql);
 
     //Bind parameters
     $stmt->bindParam(":id", $id, PDO::PARAM_INT);

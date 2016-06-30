@@ -5,9 +5,10 @@
   require 'dbconnection.php';
   require 'functions/general.php';
   require 'functions/users.php';
+  require 'functions/forum.php';
 
   $errors = array();
-  
+
   if(logged_in())
   {
     $user_data = get_user_data($_SESSION['user_id']);
