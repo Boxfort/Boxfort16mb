@@ -12,7 +12,7 @@
     <title>Boxfort16mb</title>
   </head>
 <body>
+  <?php
+    include 'navigation.php';
+  ?>
   <div class="container">
-    <?php
-      include 'navigation.php';
-    ?>
