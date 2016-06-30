@@ -24,12 +24,26 @@
   {
     if($op)
     {
-      echo "<div><div>{$reply['topic_by']} {$reply['topic_date']}</div><div>{$reply['topic_body']}</div></div>";
+      $author = $reply['topic_by'];
+      $date = $reply['topic_date'];
+      $body = $reply['topic_body'];
     }
     else
     {
-      echo "<div><div>{$reply['reply_by']} {$reply['reply_date']}</div><div>{$reply['reply_content']}</div></div>";
+      $author = $reply['reply_by'];
+      $date = $reply['reply_date'];
+      $body = $reply['reply_content'];
     }
+
+    echo "<div class='col-md-12 reply'>
+            <div class='reply-user'>
+              <img src='img/profile.png' class='img-circle'></img>
+              {$author} {$date}
+            </div>
+            <div class='reply-body'>
+              {$body}
+            </div>
+          </div>";
   }
 
   function get_topics($category = "all")

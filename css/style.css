@@ -55,6 +55,11 @@ label{
   display: inline;
 }
 
+img{
+  width:100px;
+  display: block;
+}
+
 label.required:after{
   content:'*';
   color:red;
@@ -84,6 +89,23 @@ h2.aside{
 .table-center{
   width:500px;
   margin: 0 auto;
+}
+
+.reply-user, .reply-body{
+  display: block;
+  overflow: hidden;
+}
+
+.reply-user{
+  float: left;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.reply{
+  border-bottom: 1px solid grey;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #username{
