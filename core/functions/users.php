@@ -120,8 +120,10 @@
 
   function get_post_count($id)
   {
-    $data = query_on_user_id("SELECT COUNT(reply_id) FROM replies WHERE reply_by = :id", $id);
-    return ($data === false ? false : $data['COUNT(reply_id)']);
+    $replys = query_on_user_id("SELECT COUNT(reply_id) FROM replies WHERE reply_by = :id", $id);
+    $topics = query_on_user_id("SELECT COUNT(topic_id) FROM topics WHERE topic_by = :id", $id);
+    //If replys or topics is false return false, else return replys + topics.
+    return ($replys === false ? false : ($topics === false ? false :((int)$replys['COUNT(reply_id)'] + (int)$topics['COUNT(topic_id)'])));
   }
 
   function user_exists($username)
