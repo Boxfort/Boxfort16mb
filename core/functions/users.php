@@ -118,6 +118,12 @@
     return false;
   }
 
+  function get_post_count($id)
+  {
+    $data = query_on_user_id("SELECT COUNT(reply_id) FROM replies WHERE reply_by = :id", $id);
+    return ($data === false ? false : $data['COUNT(reply_id)']);
+  }
+
   function user_exists($username)
   {
     $data = query_on_username("SELECT COUNT(user_id) FROM users WHERE username = :username", $username);

@@ -24,24 +24,35 @@
   {
     if($op)
     {
-      $author = $reply['topic_by'];
+      $author = get_username($reply['topic_by']);
+      $posts = get_post_count($reply['topic_by']);
       $date = $reply['topic_date'];
       $body = $reply['topic_body'];
     }
     else
     {
-      $author = $reply['reply_by'];
+      $author = get_username($reply['reply_by']);
+      $posts = get_post_count($reply['reply_by']);
       $date = $reply['reply_date'];
       $body = $reply['reply_content'];
     }
 
+    $date = date("jS M, Y, h:i:s A", strtotime($date));
+
     echo "<div class='col-md-12 reply'>
             <div class='reply-user'>
+              {$author}
               <img src='img/profile.png' class='img-circle'></img>
-              {$author} {$date}
+              Posts: {$posts}
             </div>
+
             <div class='reply-body'>
-              {$body}
+              <div class='reply-date'>
+                {$date}
+              </div>
+              <div>
+                {$body}
+              </div>
             </div>
           </div>";
   }

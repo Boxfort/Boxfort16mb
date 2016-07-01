@@ -108,6 +108,10 @@ h2.aside{
   padding-bottom: 20px;
 }
 
+.reply-date{
+  text-align: right;
+}
+
 #username{
   -webkit-appearance:none;
   -webkit-border-radius:0px;
