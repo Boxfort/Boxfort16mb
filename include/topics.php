@@ -1,6 +1,31 @@
 <?php
-  $topics = get_topics();
+  if(isset($_GET['cat']))
+  {
+    $topics = get_topics($_GET['cat']);
+  }
+  else
+  {
+      $topics = get_topics();
+  }
+  
+  $categories = get_categories();
 ?>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    All Categories
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="forum.php">All Categories</a></li>
+    <?php
+      foreach($categories as $category)
+      {
+        echo "<li><a href='forum.php?cat={$category['cat_name']}'>{$category['cat_name']}</a></li>";
+      }
+    ?>
+  </ul>
+</div>
 
 <div class="row">
   <table class="col-md-12 table-bordered table-striped table-condensed forum">

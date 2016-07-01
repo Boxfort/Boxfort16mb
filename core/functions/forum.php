@@ -37,6 +37,8 @@
       $body = $reply['reply_content'];
     }
 
+    $author = htmlentities($author);
+    $body = htmlentities($body);
     $date = date("jS M, Y, h:i:s A", strtotime($date));
 
     echo "<div class='col-md-12 reply'>
