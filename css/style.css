@@ -112,6 +112,10 @@ h2.aside{
   text-align: right;
 }
 
+.row{
+  margin: auto;
+}
+
 #username{
   -webkit-appearance:none;
   -webkit-border-radius:0px;

@@ -20,6 +20,28 @@
     }
   }
 
+  function get_category_name($id)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT cat_name FROM categories WHERE cat_id = :id");
+
+    $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $id = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $id['cat_name'];
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   function create_post($reply, $op)
   {
     if($op)

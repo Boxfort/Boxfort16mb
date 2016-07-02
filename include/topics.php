@@ -5,15 +5,15 @@
   }
   else
   {
-      $topics = get_topics();
+    $topics = get_topics();
   }
-  
+
   $categories = get_categories();
 ?>
 
 <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    All Categories
+    <?php echo (isset($_GET['cat']) ? $_GET['cat'] : 'All Categories'); ?>
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -32,6 +32,7 @@
     <thead>
       <tr>
         <th>Subject</th>
+        <?php echo (isset($_GET['cat']) ? "" : '<th class="fit">Category</th>'); ?>
         <th class="fit">Replies</th>
         <th class="fit">Last Post</th>
       </tr>
@@ -60,8 +61,9 @@
             <td>
               <div><a href='forum.php?topic={$topic['topic_id']}'>{$topic['topic_subject']}</a></div>
               <div>Started by {$name}</div>
-            </td>
-            <td class='fit'>
+            </td>";
+            echo (isset($_GET['cat']) ? "" : '<td class="fit">'.get_category_name($topic["topic_cat"]).'</td>');
+    echo   "<td class='fit'>
               {$replies}
             </td>
             <td class='fit'>
