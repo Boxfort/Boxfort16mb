@@ -139,3 +139,7 @@ h2.aside{
   margin-top: -1px;
   margin-bottom: -10px;
 }
+
+#pagination{
+  text-align: center;
+}

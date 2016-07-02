@@ -159,13 +159,15 @@
     }
   }
 
-  function get_replies($topic)
+  function get_replies($topic, $start, $perpage)
   {
     $db = new DbConnection();
     $data = array();
-    $stmt = $db->prepare("SELECT * FROM replies WHERE reply_topic = :topic ORDER BY reply_date");
+    $stmt = $db->prepare("SELECT * FROM replies WHERE reply_topic = :topic ORDER BY reply_date LIMIT :start, :perpage");
 
     $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+    $stmt->bindParam(":start", $start, PDO::PARAM_INT);
+    $stmt->bindParam(":perpage", $perpage, PDO::PARAM_INT);
 
     //Check that the statement can be performed.
     $isOkay = $stmt->execute();
@@ -174,6 +176,28 @@
     if($isOkay)
     {
       return $data;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  function get_num_replies($topic)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("SELECT COUNT(reply_id) FROM replies WHERE reply_topic = :topic");
+
+    $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if($isOkay)
+    {
+      return $data['COUNT(reply_id)'];
     }
     else
     {
