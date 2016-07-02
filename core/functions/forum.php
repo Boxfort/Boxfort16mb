@@ -60,7 +60,7 @@
     }
 
     $author = htmlentities($author);
-    $body = htmlentities($body);
+    $body = nl2br(htmlentities($body));
     $date = date("jS M, Y, h:i:s A", strtotime($date));
 
     echo "<div class='col-md-12 reply'>
@@ -75,10 +75,34 @@
                 {$date}
               </div>
               <div>
-                {$body}
+                  {$body}
               </div>
             </div>
           </div>";
+  }
+
+  function post_reply($message, $topic, $datetime)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("INSERT INTO replies (reply_content, reply_date, reply_topic, reply_by) VALUES (:message, :dt, :topic, :user_id)");
+
+    $stmt->bindParam(":message", $message, PDO::PARAM_STR);
+    $stmt->bindParam(":dt", $datetime, PDO::PARAM_STR);
+    $stmt->bindParam(":topic", $topic, PDO::PARAM_INT);
+    $stmt->bindParam(":user_id", $_SESSION['user_id'], PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+
+    if($isOkay)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   function get_topics($category = "all")

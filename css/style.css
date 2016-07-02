@@ -112,6 +112,17 @@ h2.aside{
   text-align: right;
 }
 
+.reply-input{
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.btn-reply{
+  float:right;
+  width:auto;
+}
+
 .row{
   margin: auto;
 }
