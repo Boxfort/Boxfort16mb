@@ -1,9 +1,20 @@
 body{
   padding: 0px;
+  background-image: url("../img/triangular.png");
+  background-size: 10%;
+  height: 100%;
+}
+
+html{
+  height: 100%;
 }
 
 hr {
   border-top: 1px dashed #8c8b8b;
+}
+
+ul{
+  display:inline;
 }
 
 ul li {
@@ -29,7 +40,10 @@ td.fit, th.fit{
 }
 
 footer{
-  display:block;
+  display:flex;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #EFEFEF;
 }
 
 hr:after {
@@ -75,6 +89,12 @@ h2.aside{
   padding-bottom: 5px;
 }
 
+.container-white{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+}
+
 .btn-register{
   width:100%;
 }
@@ -92,8 +112,12 @@ h2.aside{
 }
 
 .table-center{
-  width:500px;
+  width:400px;
   margin: 0 auto;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  padding:10px;
+  margin-bottom: 20px;
 }
 
 .reply-user, .reply-body{
@@ -101,7 +125,7 @@ h2.aside{
   vertical-align: top;
   padding: 10px;
   overflow: hidden;
-  background: #EEEEEE;
+  background: #FFFFFF;
 }
 
 .reply-body{
@@ -137,6 +161,12 @@ h2.aside{
 
 .row{
   margin: auto;
+}
+
+.container{
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 }
 
 #username{

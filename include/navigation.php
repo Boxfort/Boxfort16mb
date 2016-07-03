@@ -13,6 +13,17 @@
       <li class="nav-item"><a class="nav-link" href="downloads.php">Downloads</a></li>
       <li class="nav-item"><a class="nav-link" href="forum.php">Forum</a></li>
       <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-    <ul>
+    </ul>
+
+    <ul class="nav navbar-nav pull-right">
+      <li><a href="register.php">Sign Up</a></li>
+      <li class="divider-vertical"></li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+          <!-- Login form here -->
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>

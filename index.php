@@ -3,7 +3,7 @@
   require 'include/header.php';
 ?>
 <div class="row">
-  <div class="col-sm-8 blog-main">
+  <div class="col-sm-8 blog-main container-white">
     <h1>Index Page</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consectetur, nisl non tempus laoreet, nulla lorem interdum lacus, in varius augue velit et mi. Mauris quis lectus sapien. Pellentesque vehicula massa quis est scelerisque, in venenatis sapien dictum. Vivamus tellus arcu, iaculis in iaculis a, commodo in eros. Proin congue quam tortor, et sodales turpis fermentum vitae. Phasellus placerat diam et arcu dignissim, eget eleifend massa suscipit. Nulla a turpis aliquet, ullamcorper lacus sit amet, faucibus enim. Donec hendrerit ligula eu sollicitudin congue. Nunc ipsum est, venenatis non aliquam ac, dapibus non ex. Sed gravida turpis quis nisi facilisis suscipit. Integer quis mattis ex. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Praesent fermentum dolor sed odio vehicula, vitae imperdiet nisl faucibus. Integer mollis eros felis.
@@ -14,6 +14,7 @@
   <?php
     include 'include/aside.php';
   ?>
+</div>
 </div>
 
 <?php

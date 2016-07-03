@@ -85,47 +85,48 @@
           </div>';
   }
 ?>
-  <form action="" method="post">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td><label class="required">Username</label></td>
-          <td><input class="form-control register" name="username" placeholder="Username" required autofocus></td>
-        <tr>
-        <tr>
-          <td><label class="required">First name</label></td>
-          <td><input class="form-control register" name="first" placeholder="First name" required></td>
-        </tr>
-        <tr>
-          <td><label>Last name</label></td>
-          <td><input class="form-control register" name="last" placeholder="Last name"></td>
-        </tr>
-        <tr>
-          <td><label class="required">E-mail</label></td>
-          <td><input class="form-control register" name="email" placeholder="example@website.com" required></td>
-        </tr>
-        <tr>
-          <td><label class="required">Confirm e-mail</label></td>
-          <td><input class="form-control register" name="email_conf" placeholder="example@website.com" required></td>
-        </tr>
-        <tr>
-          <td><label class="required">Password</label></td>
-          <td><input class="form-control register" name="password" type="password" placeholder="Password" required></td>
-        </tr>
-        <tr>
-          <td><label class="required">Confirm password</label></td>
-          <td><input class="form-control register" name="password_conf" type="password" placeholder="Password" required></td>
-        </tr>
-        <tr>
-          <td colspan="2"><div class="g-recaptcha" data-sitekey="6LeokSMTAAAAAFt-eLn_YTDhRhefxMWDzO8ulFwe"></div></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><button class="btn btn-primary btn-register">Register</button></td>
-        </tr>
-      <tbody>
-    </table>
-  </form>
+    <form action="" method="post">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><label class="required">Username</label></td>
+            <td><input class="form-control register" name="username" placeholder="Username" required autofocus></td>
+          <tr>
+          <tr>
+            <td><label class="required">First name</label></td>
+            <td><input class="form-control register" name="first" placeholder="First name" required></td>
+          </tr>
+          <tr>
+            <td><label>Last name</label></td>
+            <td><input class="form-control register" name="last" placeholder="Last name"></td>
+          </tr>
+          <tr>
+            <td><label class="required">E-mail</label></td>
+            <td><input class="form-control register" name="email" placeholder="example@website.com" required></td>
+          </tr>
+          <tr>
+            <td><label class="required">Confirm e-mail</label></td>
+            <td><input class="form-control register" name="email_conf" placeholder="example@website.com" required></td>
+          </tr>
+          <tr>
+            <td><label class="required">Password</label></td>
+            <td><input class="form-control register" name="password" type="password" placeholder="Password" required></td>
+          </tr>
+          <tr>
+            <td><label class="required">Confirm password</label></td>
+            <td><input class="form-control register" name="password_conf" type="password" placeholder="Password" required></td>
+          </tr>
+          <tr>
+            <td colspan="2"><div class="g-recaptcha" data-sitekey="6LeokSMTAAAAAFt-eLn_YTDhRhefxMWDzO8ulFwe"></div></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><button class="btn btn-primary btn-register">Register</button></td>
+          </tr>
+        <tbody>
+      </table>
+    </form>
+  </div>
 </div>
 
 <?php
