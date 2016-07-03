@@ -12,6 +12,8 @@
 
   $replies = get_replies($_GET['topic'], $start, $perpage);
 
+  echo "<table class='forum thread'><tbody>";
+
   if($page == 1)
   {
     create_post(get_topic_by_id($_GET['topic']), true);
@@ -21,6 +23,8 @@
   {
     create_post($reply, false);
   }
+
+  echo "</table></tbody>";
 
 ?>
 

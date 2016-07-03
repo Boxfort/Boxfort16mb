@@ -18,6 +18,11 @@ table.forum{
   width:100% !important;
 }
 
+table.thread{
+  border-collapse: separate;
+  border-spacing: 0px 10px;
+}
+
 td.fit, th.fit{
   white-space: nowrap;
   width: 1%;
@@ -92,25 +97,31 @@ h2.aside{
 }
 
 .reply-user, .reply-body{
-  display: block;
+  display:table-cell;
+  vertical-align: top;
+  padding: 10px;
   overflow: hidden;
+  background: #EEEEEE;
+}
+
+.reply-body{
+  height:100%;
+  border-radius: 0 10px 10px 0 ;
 }
 
 .reply-user{
-  float: left;
-  margin-right: 10px;
   text-align: center;
+  border-radius: 10px 0 0 10px;
 }
 
 .reply{
   border-bottom: 1px solid grey;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   overflow: auto;
 }
 
 .reply-date{
   text-align: right;
+  margin-bottom: 10px
 }
 
 .reply-input{

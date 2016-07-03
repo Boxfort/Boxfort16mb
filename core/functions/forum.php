@@ -46,6 +46,7 @@
   {
     if($op)
     {
+      $id = $reply['topic_by'];
       $author = get_username($reply['topic_by']);
       $posts = get_post_count($reply['topic_by']);
       $date = $reply['topic_date'];
@@ -53,6 +54,7 @@
     }
     else
     {
+      $id = $reply['reply_by'];
       $author = get_username($reply['reply_by']);
       $posts = get_post_count($reply['reply_by']);
       $date = $reply['reply_date'];
@@ -63,22 +65,22 @@
     $body = nl2br(htmlentities($body));
     $date = date("jS M, Y, h:i:s A", strtotime($date));
 
-    echo "<div class='col-md-12 reply'>
-            <div class='reply-user'>
-              {$author}
+    echo "<tr class='reply'>
+            <td class='reply-user fit'>
+              <h4><a href='profile.php?user={$id}'>{$author}</a></h4>
               <img src='img/profile.png' class='img-circle'></img>
               Posts: {$posts}
-            </div>
+            </td>
 
-            <div class='reply-body'>
+            <td class='reply-body'>
               <div class='reply-date'>
                 {$date}
               </div>
               <div>
-                  {$body}
+                {$body}
               </div>
-            </div>
-          </div>";
+            </td>
+          </tr>";
   }
 
   function post_reply($message, $topic, $datetime)
