@@ -4,8 +4,6 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(32) NOT NULL,
   `password` varchar(65) NOT NULL,
-  `first_name` varchar(32) NOT NULL,
-  `surname` varchar(32) NOT NULL,
   `email` varchar(1024) NOT NULL,
   `email_code` varchar(32) NOT NULL,
   `active` int(11) NOT NULL DEFAULT '0',
