@@ -22,20 +22,18 @@
     return 0;
   }
 
-  function register_account($username, $first, $last, $email, $email_code, $password)
+  function register_account($username, $email, $email_code, $password)
   {
     $encrypt_pass = password_hash($password, PASSWORD_BCRYPT);
 
     $db = new DbConnection();
     $data = array();
-    $stmt = $db->prepare("INSERT INTO users (username, password, first_name, surname, email, email_code)
-                          VALUES (:username, :password, :first, :last, :email, :email_code)");
+    $stmt = $db->prepare("INSERT INTO users (username, password, email, email_code)
+                          VALUES (:username, :password, :email, :email_code)");
 
     //Bind parameters
     $stmt->bindParam(":username", $username, PDO::PARAM_STR);
     $stmt->bindParam(":password", $encrypt_pass, PDO::PARAM_STR);
-    $stmt->bindParam(":first", $first, PDO::PARAM_STR);
-    $stmt->bindParam(":last", $last, PDO::PARAM_STR);
     $stmt->bindParam(":email", $email, PDO::PARAM_STR);
     $stmt->bindParam(":email_code", $email_code, PDO::PARAM_STR);
 
@@ -48,7 +46,7 @@
       {
         return true;
       }
-      return flase;
+      return false;
     }
 
     return false;

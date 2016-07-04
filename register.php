@@ -4,20 +4,20 @@
 
   if (!empty($_POST))
   {
-    $required_fields = array('username', 'first', 'email', 'email_conf', 'password', 'password_conf');
+    $required_fields = array('username', 'email', 'email_conf', 'password', 'password_conf');
     foreach($_POST as $key=>$value)
     {
       if(empty($value) && in_array($key, $required_fields))
       {
         $_SESSION['errors'] = "Fields marked with an asterisk are required.";
       }
-      elseif($key != 'email' && $key != 'email_conf' && $key != "password" && $key != "password_conf")
+      elseif($key != 'email' && $key != 'email_conf' && $key != "password" && $key != "password_conf" && $key != "g-recaptcha-response")
       {
         if(preg_match("/\b[a-z0-9_-]{3,15}\b/", $value, $match))
         {
           if(strlen($match[0]) !== strlen($value))
           {
-            $_SESSION['errors'] = "Fields may only contain alphanumeric characters A-z 0-9 and underscores.";
+            $_SESSION['errors'] = "Fields may only contain alphanumeric characters A-z 0-9 and underscores. {$key}";
           }
         }
       }
@@ -62,7 +62,7 @@
     if(!isset($_SESSION['errors']))
     {
       $email_code = md5($_POST['username'] + microtime());
-      if(!register_account($_POST['username'], $_POST['first'], $_POST['last'], $_POST['email'], $email_code, $_POST['password']))
+      if(!register_account($_POST['username'], $_POST['email'], $email_code, $_POST['password']))
       {
         $_SESSION['errors'] = "We were unable to create your account due to a problem with our servers. Please try again later.";
       }
@@ -86,45 +86,18 @@
   }
 ?>
     <form action="" method="post">
-      <table class="table">
-        <tbody>
-          <tr>
-            <td><label class="required">Username</label></td>
-            <td><input class="form-control register" name="username" placeholder="Username" required autofocus></td>
-          <tr>
-          <tr>
-            <td><label class="required">First name</label></td>
-            <td><input class="form-control register" name="first" placeholder="First name" required></td>
-          </tr>
-          <tr>
-            <td><label>Last name</label></td>
-            <td><input class="form-control register" name="last" placeholder="Last name"></td>
-          </tr>
-          <tr>
-            <td><label class="required">E-mail</label></td>
-            <td><input class="form-control register" name="email" placeholder="example@website.com" required></td>
-          </tr>
-          <tr>
-            <td><label class="required">Confirm e-mail</label></td>
-            <td><input class="form-control register" name="email_conf" placeholder="example@website.com" required></td>
-          </tr>
-          <tr>
-            <td><label class="required">Password</label></td>
-            <td><input class="form-control register" name="password" type="password" placeholder="Password" required></td>
-          </tr>
-          <tr>
-            <td><label class="required">Confirm password</label></td>
-            <td><input class="form-control register" name="password_conf" type="password" placeholder="Password" required></td>
-          </tr>
-          <tr>
-            <td colspan="2"><div class="g-recaptcha" data-sitekey="6LeokSMTAAAAAFt-eLn_YTDhRhefxMWDzO8ulFwe"></div></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><button class="btn btn-primary btn-register">Register</button></td>
-          </tr>
-        <tbody>
-      </table>
+      <label class="required">Username</label><br/>
+      <input class="form-control register" name="username" placeholder="Username" required autofocus><br/>
+      <label class="required">E-mail</label><br/>
+      <input class="form-control register" name="email" placeholder="example@website.com" required><br/>
+      <label class="required">Confirm e-mail</label><br/>
+      <input class="form-control register" name="email_conf" placeholder="example@website.com" required><br/>
+      <label class="required">Password</label><br/>
+      <input class="form-control register" name="password" type="password" placeholder="Password" required><br/>
+      <label class="required">Confirm password</label><br/>
+      <input class="form-control register" name="password_conf" type="password" placeholder="Password" required><br/>
+      <div class="g-recaptcha" data-sitekey="6LeokSMTAAAAAFt-eLn_YTDhRhefxMWDzO8ulFwe"></div>
+      <button class="btn btn-primary btn-register">Register</button>
     </form>
   </div>
 </div>

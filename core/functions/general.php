@@ -24,6 +24,7 @@
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = "{$settings['email']['host']}";             // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->SMTPSecure = 'ssl';
     $mail->Username = "{$settings['email']['username']}";     // SMTP username
     $mail->Password = "{$settings['email']['password']}";     // SMTP password
     $mail->Port = "{$settings['email']['port']}";             // TCP port to connect to
@@ -38,6 +39,7 @@
     $mail->AltBody = "Please activate your account by following this link - localhost/boxfort16mb/activate.php?email={$email}&email_code={$email_code}";
 
     if(!$mail->send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
         return false;
     } else {
         return true;
