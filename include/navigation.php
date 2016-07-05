@@ -25,7 +25,7 @@
             echo '<li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>   '.$username.'<strong class="caret"></strong></a>
                     <ul class="dropdown-menu dropdown-menu-right dropdown-login" style="padding: 15px; padding-bottom: 0px;">
-                      <li><a href="">Profile</a></li>
+                      <li><a href="profile.php?user='.$_SESSION['user_id'].'">Profile</a></li>
                       <li><a href="passwordchange.php">Change Password</a></li>
                       <li role="separator" class="divider"></li>
                       <li><a href="logout.php">Logout</a></li>

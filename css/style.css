@@ -240,6 +240,10 @@ h2.aside{
   height: 100%;
 }
 
+.profile-body{
+  width:100%;
+}
+
 #username{
   -webkit-appearance:none;
   -webkit-border-radius:0px;
