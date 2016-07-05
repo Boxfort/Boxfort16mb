@@ -54,6 +54,7 @@
   ?>
  </ul>
 </div>
+</div>
 
 <?php
   if(logged_in())

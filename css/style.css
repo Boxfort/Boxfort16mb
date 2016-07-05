@@ -1,7 +1,7 @@
 body{
   padding: 0px;
   background-image: url("../img/triangular.png");
-  background-size: 10%;
+  background-size: 150px;
   height: 100%;
 }
 
@@ -10,7 +10,7 @@ html{
 }
 
 hr {
-  border-top: 1px dashed #8c8b8b;
+  border-top: 1px solid #8c8b8b;
 }
 
 ul{
@@ -43,19 +43,8 @@ footer{
   display:flex;
   padding: 10px;
   margin-top: 20px;
-  background-color: #EFEFEF;
-}
-
-hr:after {
-  content: '\002702';
-  display: inline-block;
-  position: relative;
-  top: -12px;
-  left: 40px;
-  padding: 0 3px;
-  background:#FFFFFF;
-  color: #8c8b8b;
-  font-size: 18px;
+  height: 300px;
+  background-color: #555555;
 }
 
 input.aside{
@@ -65,8 +54,10 @@ input.aside{
 }
 
 input.register{
-  width:auto;
+  width:100%;
   margin-top: 0px;
+  -webkit-appearance: none;
+  border-radius: 0;
   display: inline;
 }
 
@@ -89,14 +80,47 @@ h2.aside{
   padding-bottom: 5px;
 }
 
+.g-recaptcha{
+  width: 300px;
+  padding: 15px 0 15px 0;
+}
+
+.register-form{
+  width: 300px;
+  text-align: left;
+  min-height: 35px;
+}
+
+.center{
+  margin: 0 auto;
+}
+
+.navbar-simple * {
+  background-color: #555555;
+  color: #FFFFFF;
+}
+
+.navbar-simple .navbar-collapse ul li a:hover, .navbar-simple .navbar-collapse ul li:hover *{
+	background: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	color: #666666;
+}
+
 .container-white{
   padding: 10px;
-  border-radius: 15px;
+  border: 1px solid #DFDFDF;
   background-color: #FFFFFF;
+  -webkit-box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 6px rgba(0,0,0,0.1);
 }
 
 .btn-register{
-  width:100%;
+  width:auto;
+  border-radius: 0;
+  float:right;
 }
 
 .alert{
@@ -107,17 +131,11 @@ h2.aside{
   display:inline-block;
 }
 
-.register{
-  margin-top: 20px;
-}
-
 .table-center{
   width:400px;
   margin: 0 auto;
-  border-radius: 20px;
-  background-color: #FFFFFF;
-  padding:10px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .reply-user, .reply-body{
@@ -130,12 +148,13 @@ h2.aside{
 
 .reply-body{
   height:100%;
-  border-radius: 0 10px 10px 0 ;
+  border-left: none;
 }
 
 .reply-user{
   text-align: center;
-  border-radius: 10px 0 0 10px;
+  border-right: none;
+  padding: 0 10px 0 10px;
 }
 
 .reply{
@@ -143,9 +162,20 @@ h2.aside{
   overflow: auto;
 }
 
+.reply-header{
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
 .reply-date{
-  text-align: right;
-  margin-bottom: 10px
+  float: right;
+  color: #AAAAAA;
+}
+
+.reply-title{
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
 }
 
 .reply-input{

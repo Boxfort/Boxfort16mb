@@ -51,6 +51,7 @@
       $posts = get_post_count($reply['topic_by']);
       $date = $reply['topic_date'];
       $body = $reply['topic_body'];
+      $title = $reply['topic_subject'];
     }
     else
     {
@@ -59,6 +60,7 @@
       $posts = get_post_count($reply['reply_by']);
       $date = $reply['reply_date'];
       $body = $reply['reply_content'];
+      $title = "Re: " . get_topic_by_id($reply['reply_topic'])['topic_subject'];
     }
 
     $author = htmlentities($author);
@@ -66,16 +68,17 @@
     $date = date("jS M, Y, h:i:s A", strtotime($date));
 
     echo "<tr class='reply'>
-            <td class='reply-user fit'>
+            <td class='reply-user fit container-white'>
               <h4><a href='profile.php?user={$id}'>{$author}</a></h4>
               <img src='img/profile.png' class='img-circle'></img>
               Posts: {$posts}
             </td>
 
-            <td class='reply-body'>
-              <div class='reply-date'>
-                {$date}
-              </div>
+            <td class='reply-body container-white'>
+            <div class='reply-header'>
+              <span class='reply-title'>{$title}</span>
+              <span class='reply-date'><span class='glyphicon glyphicon-time'></span> {$date}</span>
+            </div>
               <div>
                 {$body}
               </div>
