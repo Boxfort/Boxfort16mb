@@ -54,11 +54,10 @@
   ?>
  </ul>
 </div>
-</div>
-
 <?php
   if(logged_in())
   {
     include 'replyform.php';
   }
 ?>
+</div>

@@ -24,9 +24,12 @@
             $username = get_username($_SESSION['user_id']);
             echo '<li class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>   '.$username.'<strong class="caret"></strong></a>
-                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-                      <!-- Login form here -->
-                    </div>
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-login" style="padding: 15px; padding-bottom: 0px;">
+                      <li><a href="">Profile</a></li>
+                      <li><a href="passwordchange.php">Change Password</a></li>
+                      <li role="separator" class="divider"></li>
+                      <li><a href="logout.php">Logout</a></li>
+                    </ul>
                   </li>';
           }
           else

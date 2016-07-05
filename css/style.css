@@ -17,8 +17,8 @@ ul{
   display:inline;
 }
 
-ul li {
-  list-style: none;
+ul li{
+  list-style: none !important;
 }
 
 table{
@@ -74,6 +74,29 @@ h2.aside{
   padding-bottom: 5px;
 }
 
+.dropdown-login li a{
+  color: #FFFFFF;
+}
+
+.dropdown-login{
+  border:#555555;
+  border-radius: 0 0 0 10px;
+  padding: 15px !important;
+}
+
+.navbar-nav .open a *{
+  color: #666666;
+}
+
+.navbar .navbar-nav>.open>a, .navbar .navbar-nav>.open>a:hover, .navbar .navbar-nav>.open>a:focus{
+    color: #666666;
+    background-color: #555555;
+}
+
+.active{
+  background: #555555;
+}
+
 .login{
   display: block;
   width: 100%;
@@ -99,9 +122,10 @@ h2.aside{
 .navbar-simple * {
   background-color: #555555;
   color: #FFFFFF;
+  text-decoration: none !important;
 }
 
-.navbar-simple .navbar-collapse ul li a:hover, .navbar-simple .navbar-collapse ul li:hover *{
+.navbar-simple .navbar-collapse ul li a:hover, .navbar-simple .navbar-collapse ul li:hover span, .navbar-simple .navbar-collapse ul li:hover strong{
 	background: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -128,7 +152,6 @@ h2.aside{
   padding-top: 10px;
   display:block;
   width:100%;
-  text-align: center;
 }
 
 .btn-login{
@@ -150,7 +173,7 @@ h2.aside{
 }
 
 .table-center{
-  width:400px;
+  max-width:400px;
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: center;
