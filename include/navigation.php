@@ -19,10 +19,20 @@
       <li><a href="register.php"><span class='glyphicon glyphicon-pencil'></span>   Sign Up</a></li>
       <li class="divider-vertical"></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class='glyphicon glyphicon-log-in'></span>   Sign In <strong class="caret"></strong></a>
-        <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
-          <!-- Login form here -->
-        </div>
+        <?php
+          if(logged_in())
+          {
+            $username = get_username($_SESSION['user_id']);
+            echo '<a class="dropdown-toggle" href="#" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>   '.$username.'<strong class="caret"></strong></a>
+                    <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                      <!-- Login form here -->
+                    </div>';
+          }
+          else
+          {
+            echo '</li><li><a href="register.php"><span class="glyphicon glyphicon-log-in"></span>   Sign In</a></li>';
+          }
+        ?>
       </li>
     </ul>
   </div>
