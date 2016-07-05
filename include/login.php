@@ -8,10 +8,10 @@
     }
   ?>
   <label for="username" class="sr-only">Username</label>
-  <input id="username" class="form-control aside" name="username" placeholder="Username" required autofocus></input>
+  <input id="username" class="form-control login" name="username" placeholder="Username" required autofocus></input>
   <label for="password" class="sr-only">Password</label>
-  <input id="password" class="form-control aside" name="password" type="password" placeholder="Password" required></input>
+  <input id="password" class="form-control login" name="password" type="password" placeholder="Password" required></input>
   </br>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+  <button class="btn btn-primary login btn-login" type="submit">Login</button>
 </form>
-<a class='register' href='register.php'>Create an account</a>
+<a class='register' href='register.php'>Need an account?</a>

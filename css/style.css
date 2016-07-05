@@ -47,12 +47,6 @@ footer{
   background-color: #555555;
 }
 
-input.aside{
-  display: block;
-  width: 100%;
-  padding-left: 5px;
-}
-
 input.register{
   width:100%;
   margin-top: 0px;
@@ -78,6 +72,13 @@ label.required:after{
 h2.aside{
   border-bottom: 1px solid lightgrey;
   padding-bottom: 5px;
+}
+
+.login{
+  display: block;
+  width: 100%;
+  padding-left: 5px;
+  border-radius: 0;
 }
 
 .g-recaptcha{
@@ -123,12 +124,29 @@ h2.aside{
   float:right;
 }
 
+.register{
+  padding-top: 10px;
+  display:block;
+  width:100%;
+  text-align: center;
+}
+
+.btn-login{
+  height:auto;
+}
+
 .alert{
   margin-bottom: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
   width:auto !important;
   display:inline-block;
+}
+
+.modal-content{
+  border-radius: 0;
+  margin-top: 75px;
+  padding: 0 15px 15px 15px;
 }
 
 .table-center{
