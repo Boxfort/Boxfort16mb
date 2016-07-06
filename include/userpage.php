@@ -1,12 +1,12 @@
-<?php $posts=get_post_count($_SESSION['user_id']); ?>
+<?php $posts=get_post_count($_GET['user']); ?>
 
 <table>
   <tbody>
     <tr class='reply'>
       <td class='reply-user fit container-white'>
-        <h4><?php echo get_username($_SESSION['user_id']); ?></h4>
+        <h4><?php echo get_username($_GET['user']); ?></h4>
         <img src='img/profile.png' class='img-circle'></img>
-        <?php if($_SESSION['user_id'] == $_GET['user']){ echo '<a href="editprofile.php">Edit Profile</a>'; } ?>
+        <?php if($_GET['user'] == $_GET['user']){ echo '<a href="editprofile.php">Edit Profile</a>'; } ?>
       </td>
       <td class='reply-body container-white'>
         <table class='profile-body'>
