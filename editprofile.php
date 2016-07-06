@@ -9,7 +9,14 @@
       <div class="col-sm-10 col-sm-offset-1 blog-main container-white">
         <h2>Edit Profile</h2>
         <hr/>
-        <form action="" method="post">
+        <?php
+          if(!empty($_SESSION['errors']))
+          {
+            include 'include/loginerror.php';
+            unset($_SESSION['errors']);
+          }
+        ?>
+        <form action="uploadprocessor.php" method="post" enctype="multipart/form-data">
           <dl class='profile-input'>
             <dt>Profile Picture<br/></dt>
             <dd><input id="file" type="file" name="file"> </dd>
@@ -23,7 +30,7 @@
             <dt>Signature<br/><h5>Signatures are displayed at the bottom of each post</h5></dt>
             <dd><textarea class='profile-input'></textarea></dd>
           </dl>
-            <button class="btn btn-primary btn-register">Submit</button>
+            <button type="submit" class="btn btn-primary btn-register">Submit</button>
         </form>
       </div>
     </div>

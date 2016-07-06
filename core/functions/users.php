@@ -124,6 +124,23 @@
     return ($replys === false ? false : ($topics === false ? false :((int)$replys['COUNT(reply_id)'] + (int)$topics['COUNT(topic_id)'])));
   }
 
+  function get_pp_url($id)
+  {
+      $allowed = array('gif','bmp','jpg','jpeg','png');
+      $filepath = false;
+
+      foreach($allowed as $ext)
+      {
+        $file = "img/profiles/" . $id . "." . $ext;
+        if(file_exists($file))
+        {
+          $filepath = $file;
+        }
+      }
+
+      return ($filepath === false ? "img/profile.png" : $filepath);
+  }
+
   function user_exists($username)
   {
     $data = query_on_username("SELECT COUNT(user_id) FROM users WHERE username = :username", $username);

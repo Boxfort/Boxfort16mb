@@ -52,6 +52,7 @@
       $date = $reply['topic_date'];
       $body = $reply['topic_body'];
       $title = $reply['topic_subject'];
+      $picture = get_pp_url($reply['topic_by']);
     }
     else
     {
@@ -61,16 +62,18 @@
       $date = $reply['reply_date'];
       $body = $reply['reply_content'];
       $title = "Re: " . get_topic_by_id($reply['reply_topic'])['topic_subject'];
+      $picture = get_pp_url($reply['reply_by']);
     }
 
     $author = htmlentities($author);
     $body = nl2br(htmlentities($body));
     $date = date("jS M, Y, h:i:s A", strtotime($date));
 
+
     echo "<tr class='reply'>
             <td class='reply-user fit container-white'>
               <h4><a href='profile.php?user={$id}'>{$author}</a></h4>
-              <img src='img/profile.png' class='img-circle'></img>
+              <img src='{$picture}' class='img-circle'></img>
               Posts: {$posts}
             </td>
 
