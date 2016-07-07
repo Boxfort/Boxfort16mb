@@ -1,6 +1,8 @@
 <?php
-  include 'include/header.php';
   include 'core/init.php';
+  include 'include/header.php';
+
+
   if(logged_in())
   {
     header('Location: index.php');
@@ -28,6 +30,8 @@
     include 'include/loginerror.php';
     unset($_SESSION['errors']);
   }
+
+  header('Location: index.php');
 
   include 'include/footer.php';
 ?>

@@ -95,6 +95,34 @@
     }
   }
 
+  function post_topic($subject, $body, $category, $id)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("INSERT INTO topics (topic_subject, topic_date, topic_cat, topic_by, topic_body) VALUES (:subject, :dt, :category, :user_id, :body)");
+
+    $category = get_category_id($category);
+    $dt = date("Y-m-d H:i:s");
+
+    $stmt->bindParam(":subject", $subject, PDO::PARAM_STR);
+    $stmt->bindParam(":dt", $dt, PDO::PARAM_STR);
+    $stmt->bindParam(":category", $category, PDO::PARAM_INT);
+    $stmt->bindParam(":user_id", $id, PDO::PARAM_INT);
+    $stmt->bindParam(":body", $body, PDO::PARAM_STR);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+
+    if($isOkay)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
   function get_topics($category = "all")
   {
     $db = new DbConnection();

@@ -1,5 +1,6 @@
 <?php
   $_SESSION['last_topic'] = $_SERVER['REQUEST_URI'];
+  $_SESSION['last_topic'] = str_replace("", "", $_SESSION['last_topic']);
   $_SESSION['topic_post'] = $_GET['topic'];
 
   $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
