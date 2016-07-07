@@ -238,7 +238,7 @@ div.signature{
   height: 300px;
   width: 100%;
   overflow: hidden;
-  resize: vertical; 
+  resize: vertical;
 }
 
 .btn-reply{
@@ -313,6 +313,22 @@ dl.topic-input{
 
 input.topic-input{
   width:100%;
+}
+
+.add-topic{
+  border: 1px solid #CCCCCC;
+  padding: 5px 8px;
+  float:right;
+  border-radius: 3px;
+}
+
+.add-topic span{
+  color: #555555;
+}
+
+.topic-dropdown{
+  float: left;
+  margin-bottom: 10px;
 }
 
 #username{

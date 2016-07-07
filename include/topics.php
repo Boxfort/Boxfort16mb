@@ -12,21 +12,41 @@
 ?>
 
 <div class="container-white">
-  <div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      <?php echo (isset($_GET['cat']) ? $_GET['cat'] : 'All Categories'); ?>
-      <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><a href="forum.php">All Categories</a></li>
+
+  <dl>
+    <dt class='topic-dropdown'>
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <?php echo (isset($_GET['cat']) ? $_GET['cat'] : 'All Categories'); ?>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="forum.php">All Categories</a></li>
+          <?php
+            foreach($categories as $category)
+            {
+              echo "<li><a href='forum.php?cat={$category['cat_name']}'>{$category['cat_name']}</a></li>";
+            }
+          ?>
+        </ul>
+      </div>
+    </dt>
+    <dd>
       <?php
-        foreach($categories as $category)
+        if(logged_in())
         {
-          echo "<li><a href='forum.php?cat={$category['cat_name']}'>{$category['cat_name']}</a></li>";
+          echo "
+            <a href='posttopic.php'>
+              <span class='add-topic'>
+                <span class='glyphicon glyphicon-plus'></span>
+              </span>
+            </a> ";
         }
       ?>
-    </ul>
-  </div>
+    </dd>
+  </dl>
+
+
 
   <div class="row">
     <table class="col-md-12 table-bordered table-condensed forum">
