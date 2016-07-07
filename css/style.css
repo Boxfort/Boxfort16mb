@@ -209,6 +209,7 @@ div.signature{
   text-align: center;
   border-right: none;
   padding: 0 10px 0 10px;
+  color: #000000;
 }
 
 .reply{
@@ -228,6 +229,7 @@ div.signature{
 
 .reply-title{
   font-size: 20px;
+  color: #000000;
   font-weight: bold;
   text-align: left;
 }
@@ -263,6 +265,20 @@ div.signature{
 
 .profile-input{
   overflow: hidden;
+}
+
+dl.profile{
+  margin-bottom: 10px;
+}
+
+.profile dt{
+  float: left;
+  width:40%;
+}
+
+.profile dd{
+  float: right;
+  width:55%;
 }
 
 textarea.profile-input{

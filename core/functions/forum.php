@@ -57,6 +57,7 @@
       $title = "Re: " . get_topic_by_id($reply['reply_topic'])['topic_subject'];
     }
 
+    $reply_id = $reply[$keys[0]];
     $id = $reply[$keys[4]];
     $author = htmlentities(get_username($reply[$keys[4]]));
     $posts = get_post_count($reply[$keys[4]]);

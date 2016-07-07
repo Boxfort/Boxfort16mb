@@ -12,7 +12,7 @@
   }
 ?>
 
-<tr class='reply'>
+<tr class='reply' id='<?php echo $reply_id; ?>'>
   <td class='reply-user fit container-white'>
     <h4><a href='profile.php?user=<?php echo $id; ?>'><?php echo $author; ?></a></h4>
     <img src='<?php echo $picture; ?>' class='img-circle'></img>
@@ -21,7 +21,7 @@
   </td>
   <td class='reply-body container-white'>
     <div class='reply-header'>
-      <span class='reply-title'><?php echo $title; ?></span>
+      <a class='reply-title' href='#<?php echo $reply_id; ?>'><?php echo $title; ?></a>
       <span class='reply-date'><span class='glyphicon glyphicon-time'></span> <?php echo $date; ?></span>
     </div>
     <div>
