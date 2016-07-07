@@ -36,4 +36,6 @@
     $_SESSION['errors'] = $errors[count($errors) - 1];
     header('Location: index.php');
   }
+
+  header('Location: index.php');
 ?>

@@ -36,7 +36,7 @@
         if(logged_in())
         {
           echo "
-            <a href='posttopic.php'>
+            <a href='newtopic.php'>
               <span class='add-topic'>
                 <span class='glyphicon glyphicon-plus'></span>
               </span>
