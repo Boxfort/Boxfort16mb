@@ -24,11 +24,11 @@
           <hr/>
           <dl class='profile-input'>
             <dt>Personal Text<br/><h5>This will be shown below your profile picture.</h5></dt>
-            <dd><textarea class='profile-input'></textarea></dd>
+            <dd><textarea class='profile-input' name='ptext'></textarea></dd>
           </dl>
           <dl class='profile-input'>
             <dt>Signature<br/><h5>Signatures are displayed at the bottom of each post</h5></dt>
-            <dd><textarea class='profile-input'></textarea></dd>
+            <dd><textarea class='profile-input' name='sig'></textarea></dd>
           </dl>
             <button type="submit" class="btn btn-primary btn-register">Submit</button>
         </form>

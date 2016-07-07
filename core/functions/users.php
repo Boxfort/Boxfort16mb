@@ -116,6 +116,46 @@
     return false;
   }
 
+  function update_ptext($id, $ptext)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("UPDATE users SET personal_text = :ptext WHERE user_id = :user_id");
+
+    //Bind parameters
+    $stmt->bindParam(':ptext', $ptext, PDO::PARAM_STR);
+    $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      return true;
+    }
+
+    return false;
+  }
+
+  function update_signature($id, $sig)
+  {
+    $db = new DbConnection();
+    $data = array();
+    $stmt = $db->prepare("UPDATE users SET signature = :sig WHERE user_id = :user_id");
+
+    //Bind parameters
+    $stmt->bindParam(':sig', $sig, PDO::PARAM_STR);
+    $stmt->bindParam(':user_id', $id, PDO::PARAM_INT);
+
+    //Check that the statement can be performed.
+    $isOkay = $stmt->execute();
+    if($isOkay)
+    {
+      return true;
+    }
+
+    return false;
+  }
+
   function get_post_count($id)
   {
     $replys = query_on_user_id("SELECT COUNT(reply_id) FROM replies WHERE reply_by = :id", $id);
