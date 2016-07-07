@@ -44,49 +44,30 @@
 
   function create_post($reply, $op)
   {
+    $keys = array_keys($reply);
+
     if($op)
     {
-      $id = $reply['topic_by'];
-      $author = get_username($reply['topic_by']);
-      $posts = get_post_count($reply['topic_by']);
-      $date = $reply['topic_date'];
       $body = $reply['topic_body'];
       $title = $reply['topic_subject'];
-      $picture = get_pp_url($reply['topic_by']);
     }
     else
     {
-      $id = $reply['reply_by'];
-      $author = get_username($reply['reply_by']);
-      $posts = get_post_count($reply['reply_by']);
-      $date = $reply['reply_date'];
       $body = $reply['reply_content'];
       $title = "Re: " . get_topic_by_id($reply['reply_topic'])['topic_subject'];
-      $picture = get_pp_url($reply['reply_by']);
     }
 
-    $author = htmlentities($author);
+    $id = $reply[$keys[4]];
+    $author = htmlentities(get_username($reply[$keys[4]]));
+    $posts = get_post_count($reply[$keys[4]]);
+    $date = date("jS M, Y, h:i:s A", strtotime($reply[$keys[2]]));
+    $picture = get_pp_url($reply[$keys[4]]);
+    $sigpp = get_sig_and_personal($reply[$keys[4]]);
+
+    $title = htmlentities($title);
     $body = nl2br(htmlentities($body));
-    $date = date("jS M, Y, h:i:s A", strtotime($date));
 
-
-    echo "<tr class='reply'>
-            <td class='reply-user fit container-white'>
-              <h4><a href='profile.php?user={$id}'>{$author}</a></h4>
-              <img src='{$picture}' class='img-circle'></img>
-              Posts: {$posts}
-            </td>
-
-            <td class='reply-body container-white'>
-            <div class='reply-header'>
-              <span class='reply-title'>{$title}</span>
-              <span class='reply-date'><span class='glyphicon glyphicon-time'></span> {$date}</span>
-            </div>
-              <div>
-                {$body}
-              </div>
-            </td>
-          </tr>";
+    include 'include/reply.php';
   }
 
   function post_reply($message, $topic, $datetime)

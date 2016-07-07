@@ -64,6 +64,7 @@ img{
   height:100px;
   object-fit:cover;
   display: block;
+  margin: 0 auto;
 }
 
 label.required:after{
@@ -74,6 +75,15 @@ label.required:after{
 h2.aside{
   border-bottom: 1px solid lightgrey;
   padding-bottom: 5px;
+}
+
+hr.signature{
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+div.signature{
+  font-style: italic;
 }
 
 .dropdown-login li a{

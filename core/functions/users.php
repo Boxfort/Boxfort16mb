@@ -186,6 +186,12 @@
     return false;
   }
 
+  function get_sig_and_personal($id)
+  {
+    $data = query_on_user_id("SELECT personal_text, signature FROM users WHERE user_id = :id", $id);
+    return $data;
+  }
+
   function get_username($id)
   {
     $data = query_on_user_id("SELECT username FROM users WHERE user_id = :id", $id);
