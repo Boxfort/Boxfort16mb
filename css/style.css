@@ -238,6 +238,7 @@ div.signature{
   height: 300px;
   width: 100%;
   overflow: hidden;
+  resize: vertical; 
 }
 
 .btn-reply{
@@ -294,6 +295,24 @@ textarea.profile-input{
 .profile-input dd{
   float:right;
   width:55%;
+}
+
+.topic-input dt{
+  float: left;
+  width:25%;
+}
+
+.topic-input dd{
+  float: left;
+  width:75%;
+}
+
+dl.topic-input{
+  height:25px;
+}
+
+input.topic-input{
+  width:100%;
 }
 
 #username{
