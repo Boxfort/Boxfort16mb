@@ -164,6 +164,12 @@
     return ($replys === false ? false : ($topics === false ? false :((int)$replys['COUNT(reply_id)'] + (int)$topics['COUNT(topic_id)'])));
   }
 
+  function get_signup_date($id)
+  {
+    $date = query_on_user_id("SELECT date_registered FROM users WHERE user_id = :id", $id);
+    return $date;
+  }
+
   function get_pp_url($id)
   {
       $allowed = array('gif','bmp','jpg','jpeg','png');

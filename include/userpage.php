@@ -24,7 +24,7 @@ $ptext=get_sig_and_personal($_GET['user'])['personal_text'];
             </dl>
             <dl class='profile'>
               <dt>Date Registered:<br/></dt>
-              <dd>Don't know bruv.</dd>
+              <dd><?php echo get_signup_date($_GET['user'])['date_registered']; ?></dd>
             </dl>
           </td>
         </tr>
