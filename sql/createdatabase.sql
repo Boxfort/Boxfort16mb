@@ -6,10 +6,13 @@ CREATE TABLE `users` (
   `password` varchar(65) NOT NULL,
   `email` varchar(1024) NOT NULL,
   `email_code` varchar(32) NOT NULL,
+  `date_registered` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `active` int(11) NOT NULL DEFAULT '0',
+  `personal_text` varchar(25) DEFAULT NULL,
+  `signature` text,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB;
+) ENGINE=InnoDB
 
 CREATE TABLE `categories` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT,
